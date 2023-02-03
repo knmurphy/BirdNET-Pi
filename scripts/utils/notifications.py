@@ -20,6 +20,11 @@ asset = apprise.AppriseAsset(
     ]
 )
 apobj = apprise.Apprise(asset=asset)
+
+# this should be more dynamic to automatically discover which plugins were loaded that
+# need to have protocols registered
+apobj.add('h2rdata://')
+
 config = apprise.AppriseConfig()
 config.add(APPRISE_CONFIG)
 apobj.add(config)
